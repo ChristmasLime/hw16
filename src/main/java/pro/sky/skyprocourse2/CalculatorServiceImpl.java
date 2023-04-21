@@ -1,7 +1,6 @@
 package pro.sky.skyprocourse2;
 
 import org.springframework.stereotype.Service;
-
 @Service
 
 public class CalculatorServiceImpl implements CalculatorService {
