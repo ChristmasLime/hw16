@@ -10,7 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping
 public class CalculatorController  {
     @Autowired
+
     private CalculatorService calculatorService;
+
+    public CalculatorController(CalculatorService calculatorService) {
+        this.calculatorService = calculatorService;
+    }
 
     @GetMapping
     public String hello (){
@@ -53,7 +58,7 @@ public class CalculatorController  {
     }
 
     @GetMapping("/calculator/divide")
-    public String divide(@RequestParam("num1") Integer num1, @RequestParam("num2") Integer num2) {
+    public String divide(@RequestParam("num1") int num1, @RequestParam("num2") int num2) {
         try {
             int result = calculatorService.divide(num1, num2);
             return num1 + " / " + num2 + " = " + result;
